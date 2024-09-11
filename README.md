@@ -29,6 +29,7 @@ Can be added and viewed on a housing location's detail page.
 - Cleanup unecessary listener actions.
 - Simplify, clarify, and optimize the tag search term tracking and string parsing.
 - Add more unit tests.
+- Add e2e tests.
 - Make alot of the class members and methods private or protected.
 
 ### Design

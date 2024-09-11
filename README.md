@@ -17,6 +17,7 @@ Can be added and viewed on a housing location's detail page.
 - Add support for tagging multiple users in one comment.
 - Add details tooltip that displays when the user hovers over the tag.
 - Fix edge case bugs and make functionality more robust.
+- Use the full name for the tag, and option filtering.
 
 ### Technical
 - Use SCSS.
@@ -38,5 +39,5 @@ Can be added and viewed on a housing location's detail page.
 - Fix styling of the options box to be more reactive with better positioning.
 
 ## Notes
-- The housing app is from the Angular basic tutorial I did for getting introduced to Angular basics.
+- The housing app is from the Angular basic tutorial I did for this project to get introduced to Angular basics.
 - All test data is static and very basic.

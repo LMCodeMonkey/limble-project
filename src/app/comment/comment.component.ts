@@ -63,9 +63,6 @@ export interface Comment {
   id: number,
   text: string,
   dateAdded: number,
-  author: {
-    firstName: string,
-    lastName: string,
-  },
+  author: User,
   taggedUser?: User,
 }

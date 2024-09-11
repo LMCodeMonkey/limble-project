@@ -11,7 +11,6 @@ import { User } from './users.service';
 })
 export class TagsDirective {
 
-  tagListOpen = false;
   tagListRef: ComponentRef<TagListComponent> | null;
   triggerPresent = false;
   triggerPostion = -1;
@@ -34,7 +33,6 @@ export class TagsDirective {
   @Output() userTagged = new EventEmitter<UserTaggedEventPayload>();
 
   showTagList() {
-    this.tagListOpen = true;
     this.triggerPresent = true;
     if (!this.tagListRef) {
       this.tagListRef = this.viewContainerRef.createComponent(TagListComponent);
@@ -46,7 +44,6 @@ export class TagsDirective {
 
   hideTagList() {
     if (this.tagListRef) {
-      this.tagListOpen = false;
       this.triggerPresent = false;
       this.triggerPostion = -1;
       this.tagListRef.instance.deactivate();
@@ -67,20 +64,20 @@ export class TagsDirective {
       } else if (cursorPosition <= this.triggerPostion) {
         this.triggerPostion -= 1;
         this.searchTermEndPosition -= 1;
-      } else if (this.tagListOpen && cursorPosition > this.triggerPostion && cursorPosition <= this.searchTermEndPosition + 1) {
+      } else if (this.triggerPresent && cursorPosition > this.triggerPostion && cursorPosition <= this.searchTermEndPosition + 1) {
         this.searchTermEndPosition -= 1;
       }
       return;
     }
 
-    if (!this.tagListOpen && event.key === this.triggerCharacter) {
+    if (!this.triggerPresent && event.key === this.triggerCharacter) {
       this.triggerPostion = cursorPosition;
       this.searchTermEndPosition = this.triggerPostion;
       this.showTagList();
       return;
     }
 
-    if (this.tagListOpen && cursorPosition >= this.triggerPostion && cursorPosition <= this.searchTermEndPosition + 1) {
+    if (this.triggerPresent && cursorPosition >= this.triggerPostion && cursorPosition <= this.searchTermEndPosition + 1) {
       this.searchTermEndPosition += 1;
     }
   }
@@ -98,6 +95,7 @@ export class TagsDirective {
       .concat(currentText.slice(this.searchTermEndPosition + 1));
 
     this.userTagged.emit({ taggedUser: user, newText });
+    this.viewContainerRef.element.nativeElement.focus();
     this.hideTagList();
   }
 

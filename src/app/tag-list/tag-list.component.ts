@@ -1,6 +1,7 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import {User} from '../users.service';
 
 @Component({
@@ -11,7 +12,7 @@ import {User} from '../users.service';
     <ul #tagList *ngIf="active" class="tag-list">
       <li *ngFor="let option of filteredOptions; let i = index">
         <button class="option" (click)="optionSelected(option, $event)">
-          <fa-icon [icon]="option.icon"></fa-icon>
+          <fa-icon [icon]="option.icon || defaultOptionIcon"></fa-icon>
           <div class="option-name">{{option.firstName}} {{option.lastName}}</div>
         </button>
       </li>
@@ -23,13 +24,14 @@ import {User} from '../users.service';
   }
 })
 export class TagListComponent {
+  defaultOptionIcon = faUser;
   filteredOptions: User[] = [];
 
   @Input() options: User[] = [];
 
   @Input() active = false;
 
-  @ViewChild('tagList', { static: true }) tagListRef: ElementRef | undefined;
+  @ViewChild('tag-list', { static: true }) tagListRef: ElementRef | undefined;
 
   @Output() optionSelectedEvent = new EventEmitter<User>();
 

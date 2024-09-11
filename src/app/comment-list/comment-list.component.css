@@ -1,8 +1,8 @@
-.comments-section {
+.comment-list-section {
   display: grid;
   margin-bottom: 1.5rem;
 }
-.comments-header {
+.comment-list-header {
   margin: 3rem 0rem 1rem 0rem;
 }
 .add-comment-button {

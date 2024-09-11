@@ -4,12 +4,12 @@ import {ActivatedRoute} from '@angular/router';
 import {HousingService} from '../housing.service';
 import {HousingLocation} from '../housinglocation';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
-import { CommentsComponent } from "../comments/comments.component";
+import { CommentListComponent } from "../comment-list/comment-list.component";
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, CommentsComponent],
+  imports: [CommonModule, ReactiveFormsModule, CommentListComponent],
   template: `
   <article>
     <img
@@ -43,7 +43,7 @@ import { CommentsComponent } from "../comments/comments.component";
       </form>
     </section>
     <section>
-      <app-comments></app-comments>
+      <app-comment-list></app-comment-list>
     </section>  
   </article>
 `,

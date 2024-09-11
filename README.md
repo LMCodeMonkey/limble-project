@@ -1,27 +1,41 @@
-# LimbleProject
+## Functionality Implemented
+### Comments
+Can be added and viewed on a housing location's detail page.
+### Tagging a User in a Comment
+- Follows similar behavior to Slack.
+  - However only supports one user tag.
+  - The resulting tag is '@\<user first name\>'
+- The user tag options list
+  - Triggered by the '@' character. Removing the trigger character removes the list.
+  - Any input typed after the trigger character will be used to filter the list.
+    - Filtering is case insensintive.
+    - Filtered by options that contain the search substring.
+    - If there are no optoins that contain the search substring, the list is not displayed.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.3.
+## Opportunities for Improvement (Tons!)
+### Functional
+- Add support for tagging multiple users in one comment.
+- Add details tooltip that displays when the user hovers over the tag.
+- Fix edge case bugs and make functionality more robust.
 
-## Development server
+### Technical
+- Use SCSS.
+- Implement best practice angular file and directory structure.
+  - Possibly seperate html template files.
+  - Find better homes for the interfaces.
+- Create and use a comments service for getting the comments.
+- Move the comment form related code to its own component.
+- Cleanup and standardize naming across the files and code.
+- Cleanup unecessary listener actions.
+- Simplify, clarify, and optimize the tag search term tracking and string parsing.
+- Add more unit tests.
+- Make alot of the class members and methods private or protected.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Design
+- Refine styles and add animations.
+- Style tag in comment text display and input.
+- Fix styling of the options box to be more reactive with better positioning.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Notes
+- The housing app is from the Angular basic tutorial I did for getting introduced to Angular basics.
+- All test data is static and very basic.

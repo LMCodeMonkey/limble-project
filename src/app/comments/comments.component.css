@@ -1,0 +1,22 @@
+.comments-section {
+  display: grid;
+  margin-bottom: 1.5rem;
+}
+.comments-header {
+  margin: 3rem 0rem 1rem 0rem;
+}
+.add-comment-button {
+  width: fit-content;
+  justify-self: end;
+}
+.comment-form {
+  display: grid;
+}
+.comment-form-button {
+  justify-self: end
+}
+#commentText {
+  margin: 1rem 0rem 1rem 0rem;
+  min-height: 10rem;
+  width: auto;
+}

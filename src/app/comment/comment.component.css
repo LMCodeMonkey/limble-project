@@ -1,0 +1,19 @@
+.comment {
+  display: grid;
+  grid-template-columns: 2rem minmax(10rem, 4fr) minmax(5rem, 1fr);
+}
+.comment-text {
+  margin-bottom: 0.75rem;
+  word-wrap: break-word;
+}
+.comment-metadata {
+  justify-self: end;
+}
+.comment-seperator {
+  grid-column: 1 / 4;
+  margin-bottom: 0.75rem;
+}
+.tag {
+  font-weight: bold;
+  color: blue;
+}
